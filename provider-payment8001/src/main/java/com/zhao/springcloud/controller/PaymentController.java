@@ -1,12 +1,18 @@
 package com.zhao.springcloud.controller;
 
+import cn.hutool.json.JSONUtil;
 import com.zhao.springcloud.entities.CommentResult;
 import com.zhao.springcloud.entities.Payment;
 import com.zhao.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Description: desc
@@ -18,11 +24,14 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class PaymentController {
 
-    @Autowired
+    @Resource
     private PaymentService paymentService;
 
     @Value("${server.port}")
     private String serverPort;
+
+    @Resource
+    private DiscoveryClient discoveryClient;
 
     @PostMapping("/creat")
     public CommentResult<Integer> creat(@RequestBody Payment payment) {
@@ -48,4 +57,12 @@ public class PaymentController {
         return builder.build();
     }
 
+    @GetMapping("/discovery")
+    public CommentResult discoveryClient(){
+        List<String> services = discoveryClient.getServices();
+        log.info("services-{}",services);
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+        log.info("instances-{}", instances);
+        return CommentResult.builder().code(200).data("heath").build();
+    }
 }
