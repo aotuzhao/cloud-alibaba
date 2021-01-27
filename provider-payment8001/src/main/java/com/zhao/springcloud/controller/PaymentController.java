@@ -1,11 +1,9 @@
 package com.zhao.springcloud.controller;
 
-import cn.hutool.json.JSONUtil;
 import com.zhao.springcloud.entities.CommentResult;
 import com.zhao.springcloud.entities.Payment;
 import com.zhao.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
