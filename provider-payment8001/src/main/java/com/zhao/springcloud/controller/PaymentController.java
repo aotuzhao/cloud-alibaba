@@ -1,5 +1,6 @@
 package com.zhao.springcloud.controller;
 
+import cn.hutool.core.lang.UUID;
 import com.zhao.springcloud.entities.CommentResult;
 import com.zhao.springcloud.entities.Payment;
 import com.zhao.springcloud.service.PaymentService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description: desc
@@ -62,5 +64,11 @@ public class PaymentController {
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
         log.info("instances-{}", instances);
         return CommentResult.builder().code(200).data("heath").build();
+    }
+
+    @GetMapping( value ="/timeout" )
+    public CommentResult timeout() {
+        CommentResult commentResult = CommentResult.builder().code(200).message("success").data("springcloud with consul: " + serverPort + " \t " + UUID.randomUUID().toString()).build();
+        return commentResult;
     }
 }

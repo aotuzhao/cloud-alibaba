@@ -20,6 +20,7 @@
         <module>consumer-zk-order80</module>
         <module>provider-consul-payment8006</module>
         <module>consumer-consul-order80</module>
+        <module>consumer-feign-order80</module>
     </modules>
 
     <properties>
