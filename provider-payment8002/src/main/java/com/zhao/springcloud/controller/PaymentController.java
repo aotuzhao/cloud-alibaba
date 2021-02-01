@@ -48,4 +48,8 @@ public class PaymentController {
         return builder.build();
     }
 
+    @GetMapping( value ="/lb" )
+    public String lb() {
+        return serverPort;
+    }
 }
