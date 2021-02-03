@@ -21,6 +21,6 @@ public class MessageController {
 
     @StreamListener(Sink.INPUT)
     public void input(Message<String> message) {
-        System.out.println(" 消费者 1 号，接受： " + message.getPayload() + " \t port:" + serverPort);
+        System.out.println(" 消费者 2 号，接受： " + message.getPayload() + " \t port:" + serverPort);
     }
 }

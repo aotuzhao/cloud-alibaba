@@ -1,6 +1,6 @@
 
 server:
-  port: 8801
+  port: 8802
 
 spring:
   application:
@@ -22,6 +22,7 @@ spring:
           destination: cloud-stream-exchanges # 表示要使用的 Exchange 名称定义
           content-type: application/json # 设置消息类型，本次为 json ，文本则设置 “text/plain”
           binder: defaultRabbit # 设置要绑定的消息服务的具体设置
+          group: dev-group
 eureka:
   client:
     service-url:
