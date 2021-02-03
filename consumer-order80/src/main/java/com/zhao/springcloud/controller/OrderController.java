@@ -58,5 +58,12 @@ public class OrderController {
         log.info("OrderController-getById-end-{}", commentResult);
         return commentResult;
     }
+
+
+    @GetMapping("/zipkin")
+    public String paymentZipkin() {
+       return restTemplate.getForObject(PAYMENT_URL+"/zipkin/",String.class);
+    }
+
 }
 
