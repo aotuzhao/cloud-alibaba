@@ -1,0 +1,32 @@
+server.port=8001
+
+spring.application.name=stream-rabbitmq-provider
+
+# \u8BBE\u7F6E\u8981\u7ED1\u5B9A\u7684rabbitmq\u7684\u670D\u52A1\u4FE1\u606F
+spring.cloud.stream.binders.defaultRabbit.type=rabbit
+spring.cloud.stream.binders.defaultRabbit.environment.spring.rabbitmq.virtual-host=
+
+
+
+
+#spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+#spring.datasource.username=root
+#spring.datasource.password=12345678
+
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+#eureka.client.service-url.defaultZone=http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+eureka.client.service-url.defaultZone=http://eureka7001.com:7001/eureka/
+# \u9690\u85CFip
+eureka.instance.instance-id=payment8001
+# \u8BBF\u95EE\u8DEF\u5F84\u53EF\u663E\u793Aip
+eureka.instance.prefer-ip-address=true
+
+#mybatis.mapper-locations=classpath:mapper/*.xml
+#mybatis.type-aliases-package=com.zhao.springcloud.entities
+
+
+
+
