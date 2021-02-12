@@ -32,6 +32,7 @@
         <module>alibaba-provider-payment9002</module>
         <module>alibaba-consumer-order83</module>
         <module>alibaba-config-nacos</module>
+        <module>alibaba-sentinel-service8401</module>
     </modules>
 
     <properties>
