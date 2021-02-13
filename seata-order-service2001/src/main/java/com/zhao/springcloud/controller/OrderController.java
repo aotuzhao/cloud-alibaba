@@ -1,0 +1,28 @@
+package com.zhao.springcloud.controller;
+
+import com.zhao.springcloud.domain.CommonResult;
+import com.zhao.springcloud.domain.Order;
+import com.zhao.springcloud.service.OrderService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+
+/**
+ * @Description: desc
+ * @Author zhaoxuezhao
+ * @Date 2021/2/12 9:48 下午
+ */
+@RestController
+public class OrderController {
+    @Resource
+    private OrderService orderService;
+
+
+    @GetMapping("/order/create")
+    public CommonResult create(Order order) {
+        orderService.create(order);
+        return new CommonResult(200, "订单创建成功");
+    }
+
+}
